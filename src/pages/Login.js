@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
 
    label: {
       fontWeight: 'bold',
-      color: '444',
+      color: '#444',
       marginBottom: 8
    },
 
@@ -94,12 +94,12 @@ const styles = StyleSheet.create({
       fontSize:16,
       color: '#444',
       marginBottom: 20,
-      borderRadius: 2
+      borderRadius: 2,
    },
 
    button: {
       height: 42,
-      backgroundColor: '#f05a5ab',
+      backgroundColor: '#f05a5b',
       justifyContent: 'center',
       alignItems:'center',
       borderRadius: 2,
