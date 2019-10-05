@@ -4,7 +4,7 @@ import { View, Alert, AsyncStorage, StyleSheet, Text, TextInput, SafeAreaView, T
 import api from '../services/api';
 
 export default function Book({ navigation }) {
-   const id = navigation.getParams('id');
+   const id = navigation.getParam('id');
    const [date, setDate] = useState('');
 
    async function reserva(){
@@ -25,7 +25,7 @@ export default function Book({ navigation }) {
    }
 
    return (
-      <SafeAreaView style={style.container}>
+      <SafeAreaView style={styles.container}>
          <Text style={styles.label}>DATA DE INTERESSE *</Text>
          <TextInput
             style={styles.input}
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
       borderRadius: 2,
    },
 
-   cancelCutton: {
+   cancelButton: {
       backgroundColor: '#ccc',
       marginTop: 10,
    },

@@ -13,6 +13,8 @@ function SpotList({tech, navigation}) {
             params: {tech}
          });
 
+         console.log(response.data);
+
          setSpots(response.data);
       }
 
@@ -25,21 +27,21 @@ function SpotList({tech, navigation}) {
 
    return (
       <View style={styles.contaier}>
-         <Text style={styles.title}>Empresas que usam <Text style={style.bold}>${tech}</Text></Text>
+         <Text style={styles.title}>Empresas que usam <Text style={styles.bold}>{tech}</Text></Text>
 
-         <FlatList style={style.list}
+         <FlatList style={styles.list}
                    data={spots}
                    keyExtractor={spot => spot._id}
                    horizontal
                    showsHorizontalScrollIndicator={false}
                    renderItem={({ item }) => (
-                     <View style={style.listItem}>
-                        <Image style={style.thumbnail} source={{uri: item.thumbnail_url}}/>
-                        <Text style={style.company}>{item.company}</Text>
-                        <Text style={style.price}>{item.price ? `R$${item.price}/dia` : `Gratuito`}</Text>
+                     <View style={styles.listItem}>
+                        <Image style={styles.thumbnail} source={{uri: item.thumbnail_url}}/>
+                        <Text style={styles.company}>{item.company}</Text>
+                        <Text style={styles.price}>{item.price ? `R$${item.price}/dia` : `Gratuito`}</Text>
                      
-                        <TouchableOpacity style={style.button} onPress={() => solictarReserva(item._id)}>
-                           <Text style={style.buttonText}>Solicitar Reserva</Text>   
+                        <TouchableOpacity style={styles.button} onPress={() => solictarReserva(item._id)}>
+                           <Text style={styles.buttonText}>Solicitar Reserva</Text>   
                         </TouchableOpacity>
                      </View> 
                    )}/>

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {AsyncStorage, View, Image, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
+import {AsyncStorage, View, Image, StyleSheet, Text, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native';
 
 import api from '../services/api';
 import logo from '../assets/logo.png';
@@ -17,7 +17,9 @@ export default function Login({navigation}) {
    }, []);
 
    async function login(){
-      const resposta = await api.post('/sesssions', {
+      console.log('aqui');
+
+      const resposta = await api.post('/session', {
          email
       })
 
@@ -31,7 +33,7 @@ export default function Login({navigation}) {
 
 
    return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : null} >
          <Image source={logo}></Image>
 
          <View style={styles.form}>
@@ -52,7 +54,6 @@ export default function Login({navigation}) {
                style={styles.input}
                placeholder="Tecnologias de interesse"
                placeholderTextColor="#999"
-               keyboardType="email-address"
                autoCapitalize="words"
                autoCorrect={false}
                value={techs}
@@ -64,7 +65,7 @@ export default function Login({navigation}) {
             </TouchableOpacity>
                
          </View>
-      </View>
+      </KeyboardAvoidingView> 
    );
 }
 
@@ -110,7 +111,6 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       fontSize: 16, 
 
-   }
+   },
+   
 });
-
-//parei no 57
